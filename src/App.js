@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     async function loadMessages() {
       try {
-        const response = await axios.get("http://localhost:8080/messages");
+        const response = await axios.get("http://34.201.82.189:8080/messages");
         setMessages(response.data);
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -22,7 +22,7 @@ function App() {
   const sendMessage = async () => {
     if (messageText.trim()) {
       try {
-        const response = await axios.post("http://localhost:8080/messages", {
+        const response = await axios.post("http://34.201.82.189:8080/messages", {
           text: messageText,
         });
         setMessages([...messages, response.data]);
