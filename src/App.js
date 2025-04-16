@@ -39,8 +39,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-950 text-white p-8 flex flex-col items-center">
-      <div className="w-full max-w-2xl bg-gray-900 p-4 rounded-lg shadow-lg mb-8">
+    <div className="min-h-screen bg-black text-white p-8 flex flex-col items-center">
+      <div className="w-full max-w-2xl bg-black p-4 rounded-lg shadow-lg mb-8">
         <div className="space-y-4">
           {messages.map((msg) => (
             <div
@@ -65,7 +65,7 @@ function App() {
         />
         <button
           onClick={sendMessage}
-          className="bg-black hover:bg-slate-600 text-white p-4 rounded-lg"
+          className="bg-gray-700 hover:bg-slate-600 text-white p-4 rounded-lg"
         >
           Send
         </button>
