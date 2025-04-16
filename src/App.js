@@ -9,7 +9,9 @@ function App() {
   useEffect(() => {
     async function loadMessages() {
       try {
-        const response = await axios.get("https://loyal-renewal-production.up.railway.app/messages");
+        const response = await axios.get(
+          "https://loyal-renewal-production.up.railway.app/messages"
+        );
         setMessages(response.data);
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -22,9 +24,12 @@ function App() {
   const sendMessage = async () => {
     if (messageText.trim()) {
       try {
-        const response = await axios.post("https://loyal-renewal-production.up.railway.app/messages", {
-          text: messageText,
-        });
+        const response = await axios.post(
+          "https://loyal-renewal-production.up.railway.app/messages",
+          {
+            text: messageText,
+          }
+        );
         setMessages([...messages, response.data]);
         setMessageText(""); // Reset input
       } catch (error) {
@@ -34,21 +39,17 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center">
-      <h1 className="text-3xl font-bold text-center text-indigo-600 mb-8">
-        Chatroom
-      </h1>
-
-      <div className="w-full max-w-2xl bg-white p-6 rounded-lg shadow-lg mb-8">
+    <div className="min-h-screen bg-stone-950 text-white p-8 flex flex-col items-center">
+      <div className="w-full max-w-2xl bg-gray-900 p-4 rounded-lg shadow-lg mb-8">
         <div className="space-y-4">
           {messages.map((msg) => (
             <div
               key={msg.id}
-              className="bg-gray-200 p-4 rounded-lg flex flex-col"
+              className="bg-gray-700 p-4 rounded-lg flex flex-col"
             >
               <div className="font-semibold">Message ID: {msg.id}</div>
               <div>{msg.text}</div>
-              <div className="text-sm text-gray-500">{msg.created_at}</div>
+              <div className="text-sm text-gray-400">{msg.created_at}</div>
             </div>
           ))}
         </div>
@@ -59,12 +60,12 @@ function App() {
           type="text"
           value={messageText}
           onChange={(e) => setMessageText(e.target.value)}
-          className="flex-1 p-4 border border-gray-300 rounded-lg"
+          className="flex-1 p-4 bg-gray-700 text-white border border-gray-600 rounded-lg"
           placeholder="Type your message..."
         />
         <button
           onClick={sendMessage}
-          className="bg-indigo-600 text-white p-4 rounded-lg"
+          className="bg-black hover:bg-slate-600 text-white p-4 rounded-lg"
         >
           Send
         </button>
